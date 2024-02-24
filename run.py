@@ -5,7 +5,7 @@ from controller.user_controller import UserRegister
 
 app = Flask(__name__)
 api = Api(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hotels.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///webpedidos.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG'] = True
 
