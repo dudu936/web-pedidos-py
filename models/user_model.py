@@ -25,6 +25,10 @@ class UserModel(alchemy.Model) :
         alchemy.session.add(self)
         alchemy.session.commit()
 
+    def delete(self):
+        alchemy.session.delete(self)
+        alchemy.session.commit()
+
     @classmethod
     def find_by_id(cls, id):
         return alchemy.session.query(cls).filter_by(id=id).first()

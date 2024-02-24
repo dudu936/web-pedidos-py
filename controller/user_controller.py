@@ -19,3 +19,11 @@ class User(Resource):
             return user.json(), 200
         return {'message':'user not found'},404
     
+    def delete(self, id):
+        user = UserModel.find_by_id(id)
+        try:
+            user.delete()
+        except:
+            return {"message": "A server error"}, 500
+        return 200
+    
