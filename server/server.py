@@ -1,8 +1,7 @@
 from flask import Flask
 from flask_restful import Api
-from controller.user_controller import UserRegister
+from controller.user_controller import User
 from database.repository import alchemy
-from config.config import Initialize
 from config.settings import *
 
 
@@ -19,11 +18,11 @@ class Server:
         self.app.config['DEBUG'] = DEBUG
 
     def create_routes(self):
-        self.api.add_resource(UserRegister,'/register')
+        self.api.add_resource(User,'/register','/user/<string:id>')
 
     def create_db(self):
         alchemy.create_all()
-        Initialize.create_data()
+        
 
     def run(self):
         alchemy.init_app(self.app)
